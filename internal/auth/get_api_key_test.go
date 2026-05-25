@@ -11,7 +11,7 @@ func TestGetAPIKey(t *testing.T) {
 	t.Run("Empty Header Case", func(t *testing.T) {
 		h := http.Header{}
 		_, err := GetAPIKey(h)
-		if err != nil {
+		if err == nil {
 			t.Error("expected error to exist, but got nil")
 		}
 		if !errors.Is(err, ErrNoAuthHeaderIncluded) {
